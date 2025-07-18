@@ -1,0 +1,412 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   All-in-One Media Platform
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    #background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.3) saturate(1.2);
+    }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-white min-h-screen flex flex-col relative">
+  <img alt="Epic background collage featuring Star Wars and Marvel series characters and iconic scenes, cinematic style with dark blue and black tones" height="1080" id="background-image" src="https://storage.googleapis.com/a1aa/image/5f515c7c-0edd-4d16-c650-0cc96f1302e4.jpg" width="1920"/>
+  <header class="bg-black bg-opacity-70 shadow-md sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <div class="flex items-center space-x-3">
+     <img alt="App logo, a stylized letter A in blue and white" class="h-10 w-10 rounded" height="40" src="https://storage.googleapis.com/a1aa/image/68f9eabc-0d1b-42b8-3c7f-9bddec595465.jpg" width="40"/>
+     <h1 class="text-xl font-semibold text-blue-400">
+      MediaHub
+     </h1>
+    </div>
+    <nav class="hidden md:flex space-x-6 text-gray-300 font-medium">
+     <button class="tab-btn py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="pdf">
+      <i class="fas fa-file-pdf mr-1 text-red-500">
+      </i>
+      PDF
+     </button>
+     <button class="tab-btn py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="music">
+      <i class="fas fa-music mr-1 text-green-500">
+      </i>
+      Music
+     </button>
+     <button class="tab-btn py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="video">
+      <i class="fas fa-video mr-1 text-purple-500">
+      </i>
+      Video
+     </button>
+     <button class="tab-btn py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="ppt">
+      <i class="fas fa-file-powerpoint mr-1 text-orange-500">
+      </i>
+      PPT
+     </button>
+     <button class="tab-btn py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="epub">
+      <i class="fas fa-book-open mr-1 text-indigo-500">
+      </i>
+      EPUB
+     </button>
+    </nav>
+    <button aria-label="Open menu" class="md:hidden text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="mobile-menu-button">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </div>
+   <nav aria-label="Mobile menu" class="md:hidden bg-black bg-opacity-70 border-t border-gray-700 hidden" id="mobile-menu">
+    <div class="px-4 py-2 space-y-1">
+     <button class="tab-btn block w-full text-left py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="pdf">
+      <i class="fas fa-file-pdf mr-2 text-red-500">
+      </i>
+      PDF
+     </button>
+     <button class="tab-btn block w-full text-left py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="music">
+      <i class="fas fa-music mr-2 text-green-500">
+      </i>
+      Music
+     </button>
+     <button class="tab-btn block w-full text-left py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="video">
+      <i class="fas fa-video mr-2 text-purple-500">
+      </i>
+      Video
+     </button>
+     <button class="tab-btn block w-full text-left py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="ppt">
+      <i class="fas fa-file-powerpoint mr-2 text-orange-500">
+      </i>
+      PPT
+     </button>
+     <button class="tab-btn block w-full text-left py-2 px-3 rounded hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-tab="epub">
+      <i class="fas fa-book-open mr-2 text-indigo-500">
+      </i>
+      EPUB
+     </button>
+    </div>
+   </nav>
+  </header>
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
+   <!-- PDF Section -->
+   <section class="tab-content hidden" id="pdf">
+    <h2 class="text-2xl font-semibold text-white mb-4 flex items-center">
+     <i class="fas fa-file-pdf text-red-500 mr-3">
+     </i>
+     PDF Documents
+    </h2>
+    <div class="mb-6">
+     <label class="block mb-2 font-medium text-white cursor-pointer inline-flex items-center space-x-2" for="pdf-upload">
+      <i class="fas fa-upload text-red-500">
+      </i>
+      <span>
+       Upload PDF
+      </span>
+     </label>
+     <input accept="application/pdf" class="hidden" id="pdf-upload" multiple="" type="file"/>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="pdf-list">
+    </div>
+   </section>
+   <!-- Music Section -->
+   <section class="tab-content hidden" id="music">
+    <h2 class="text-2xl font-semibold text-white mb-4 flex items-center">
+     <i class="fas fa-music text-green-500 mr-3">
+     </i>
+     Music Player
+    </h2>
+    <div class="mb-6">
+     <label class="block mb-2 font-medium text-white cursor-pointer inline-flex items-center space-x-2" for="music-upload">
+      <i class="fas fa-upload text-green-500">
+      </i>
+      <span>
+       Upload Music Files (MP3, WAV)
+      </span>
+     </label>
+     <input accept="audio/*" class="hidden" id="music-upload" multiple="" type="file"/>
+    </div>
+    <div class="space-y-4" id="music-list">
+    </div>
+   </section>
+   <!-- Video Section -->
+   <section class="tab-content hidden" id="video">
+    <h2 class="text-2xl font-semibold text-white mb-4 flex items-center">
+     <i class="fas fa-video text-purple-500 mr-3">
+     </i>
+     Video Player
+    </h2>
+    <div class="mb-6">
+     <label class="block mb-2 font-medium text-white cursor-pointer inline-flex items-center space-x-2" for="video-upload">
+      <i class="fas fa-upload text-purple-500">
+      </i>
+      <span>
+       Upload Video Files (MP4, WebM)
+      </span>
+     </label>
+     <input accept="video/*" class="hidden" id="video-upload" multiple="" type="file"/>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="video-list">
+    </div>
+   </section>
+   <!-- PPT Section -->
+   <section class="tab-content hidden" id="ppt">
+    <h2 class="text-2xl font-semibold text-white mb-4 flex items-center">
+     <i class="fas fa-file-powerpoint text-orange-500 mr-3">
+     </i>
+     PowerPoint Presentations
+    </h2>
+    <div class="mb-6">
+     <label class="block mb-2 font-medium text-white cursor-pointer inline-flex items-center space-x-2" for="ppt-upload">
+      <i class="fas fa-upload text-orange-500">
+      </i>
+      <span>
+       Upload PPT or PPTX Files
+      </span>
+     </label>
+     <input accept=".ppt,.pptx" class="hidden" id="ppt-upload" multiple="" type="file"/>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="ppt-list">
+    </div>
+   </section>
+   <!-- EPUB Section -->
+   <section class="tab-content hidden" id="epub">
+    <h2 class="text-2xl font-semibold text-white mb-4 flex items-center">
+     <i class="fas fa-book-open text-indigo-500 mr-3">
+     </i>
+     EPUB Books
+    </h2>
+    <div class="mb-6">
+     <label class="block mb-2 font-medium text-white cursor-pointer inline-flex items-center space-x-2" for="epub-upload">
+      <i class="fas fa-upload text-indigo-500">
+      </i>
+      <span>
+       Upload EPUB Files
+      </span>
+     </label>
+     <input accept=".epub" class="hidden" id="epub-upload" multiple="" type="file"/>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="epub-list">
+    </div>
+   </section>
+  </main>
+  <footer class="bg-black bg-opacity-70 border-t border-gray-700 py-6 mt-auto relative z-10">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm select-none">
+    © 2024 MediaHub. All rights reserved.
+   </div>
+  </footer>
+  <script>
+   // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Tabs logic
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function activateTab(tabName) {
+      tabContents.forEach((section) => {
+        if (section.id === tabName) {
+          section.classList.remove('hidden');
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+      tabButtons.forEach((btn) => {
+        if (btn.dataset.tab === tabName) {
+          btn.classList.add('bg-blue-700', 'text-white', 'font-semibold');
+        } else {
+          btn.classList.remove('bg-blue-700', 'text-white', 'font-semibold');
+        }
+      });
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    }
+
+    // Default tab
+    activateTab('pdf');
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.dataset.tab);
+      });
+    });
+
+    // PDF Upload and Display
+    const pdfUpload = document.getElementById('pdf-upload');
+    const pdfList = document.getElementById('pdf-list');
+
+    pdfUpload.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file) => {
+        if (file.type !== 'application/pdf') return;
+        const url = URL.createObjectURL(file);
+        const item = document.createElement('div');
+        item.className =
+          'bg-black bg-opacity-60 rounded shadow p-4 flex flex-col items-center space-y-3';
+        const img = document.createElement('img');
+        img.src =
+          'https://placehold.co/150x200/png?text=PDF+Icon&font=roboto&font-weight=700&font-size=24&text-color=red';
+        img.alt = 'Placeholder icon representing a PDF document with red text';
+        img.className = 'w-24 h-32 object-contain';
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = file.name;
+        link.className =
+          'text-red-400 hover:underline font-medium truncate max-w-full text-center';
+        item.appendChild(img);
+        item.appendChild(link);
+        pdfList.appendChild(item);
+      });
+      pdfUpload.value = '';
+    });
+
+    // Music Upload and Display
+    const musicUpload = document.getElementById('music-upload');
+    const musicList = document.getElementById('music-list');
+
+    musicUpload.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file) => {
+        if (!file.type.startsWith('audio/')) return;
+        const url = URL.createObjectURL(file);
+        const container = document.createElement('div');
+        container.className =
+          'bg-black bg-opacity-60 rounded shadow p-4 flex flex-col space-y-2';
+        const title = document.createElement('p');
+        title.textContent = file.name;
+        title.className = 'font-semibold text-green-400 truncate';
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = url;
+        audio.className = 'w-full';
+        container.appendChild(title);
+        container.appendChild(audio);
+        musicList.appendChild(container);
+      });
+      musicUpload.value = '';
+    });
+
+    // Video Upload and Display
+    const videoUpload = document.getElementById('video-upload');
+    const videoList = document.getElementById('video-list');
+
+    videoUpload.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file) => {
+        if (!file.type.startsWith('video/')) return;
+        const url = URL.createObjectURL(file);
+        const container = document.createElement('div');
+        container.className =
+          'bg-black bg-opacity-60 rounded shadow p-4 flex flex-col space-y-2';
+        const title = document.createElement('p');
+        title.textContent = file.name;
+        title.className = 'font-semibold text-purple-400 truncate';
+        const video = document.createElement('video');
+        video.controls = true;
+        video.src = url;
+        video.className = 'w-full rounded';
+        video.setAttribute('aria-label', `Video player for ${file.name}`);
+        container.appendChild(title);
+        container.appendChild(video);
+        videoList.appendChild(container);
+      });
+      videoUpload.value = '';
+    });
+
+    // PPT Upload and Display
+    const pptUpload = document.getElementById('ppt-upload');
+    const pptList = document.getElementById('ppt-list');
+
+    pptUpload.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file) => {
+        if (
+          !(
+            file.name.endsWith('.ppt') ||
+            file.name.endsWith('.pptx') ||
+            file.type ===
+              'application/vnd.ms-powerpoint' ||
+            file.type ===
+              'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+          )
+        )
+          return;
+        const url = URL.createObjectURL(file);
+        const item = document.createElement('div');
+        item.className =
+          'bg-black bg-opacity-60 rounded shadow p-4 flex flex-col items-center space-y-3';
+        const img = document.createElement('img');
+        img.src =
+          'https://placehold.co/150x200/png?text=PPT+Icon&font=roboto&font-weight=700&font-size=24&text-color=orange';
+        img.alt =
+          'Placeholder icon representing a PowerPoint presentation with orange text';
+        img.className = 'w-24 h-32 object-contain';
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = file.name;
+        link.className =
+          'text-orange-400 hover:underline font-medium truncate max-w-full text-center';
+        item.appendChild(img);
+        item.appendChild(link);
+        pptList.appendChild(item);
+      });
+      pptUpload.value = '';
+    });
+
+    // EPUB Upload and Display
+    const epubUpload = document.getElementById('epub-upload');
+    const epubList = document.getElementById('epub-list');
+
+    epubUpload.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file) => {
+        if (!file.name.endsWith('.epub')) return;
+        const url = URL.createObjectURL(file);
+        const item = document.createElement('div');
+        item.className =
+          'bg-black bg-opacity-60 rounded shadow p-4 flex flex-col items-center space-y-3';
+        const img = document.createElement('img');
+        img.src =
+          'https://placehold.co/150x200/png?text=EPUB+Icon&font=roboto&font-weight=700&font-size=24&text-color=indigo';
+        img.alt =
+          'Placeholder icon representing an EPUB book with indigo text';
+        img.className = 'w-24 h-32 object-contain';
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = file.name;
+        link.className =
+          'text-indigo-400 hover:underline font-medium truncate max-w-full text-center';
+        item.appendChild(img);
+        item.appendChild(link);
+        epubList.appendChild(item);
+      });
+      epubUpload.value = '';
+    });
+  </script>
+ </body>
+</html>
